@@ -14,11 +14,5 @@ Thumbs.db
 *.swp
 *.swo
 
-# Local environment files
-.env
-.env.*
-.envrc
-!.env.example
-
 # Logs
 *.log

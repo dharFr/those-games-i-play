@@ -1,0 +1,36 @@
+[tools]
+python = "3.11"
+node = "18"
+redis = "7.0"
+# mongodb install doesn't work on x86. Installed manually for now. 
+# See https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/
+# mongodb = "8.0.4" 
+
+[env]
+DATABASE_URL = "mongodb://localhost:27017/games"
+REDIS_URL = "redis://localhost:6379"
+STEAM_API_KEY = "op://Development/Steam/api_key"
+API_URL = "http://localhost:8000"
+FRONTEND_URL = "http://localhost:5173"
+
+[tasks.start]
+depends = ["start-db", "start-api", "start-front"]
+
+[tasks.start-db]
+run = "mongod --quiet & redis-server --daemonize yes"
+
+[tasks.start-api]
+run = "cd backend && uvicorn main:app --reload --port ${API_URL##*:}"
+
+[tasks.start-front]
+run = "cd frontend && npm run dev"
+
+[tasks.install]
+run = [
+    "pip install -r backend/requirements.txt",
+    "cd frontend && npm install",
+    "mkdir -p backend/scripts/data"  # Ensure data directory exists
+]
+
+[tasks.stop]
+run = ["pkill mongod", "redis-cli shutdown", "pkill -f uvicorn", "pkill -f vite"]

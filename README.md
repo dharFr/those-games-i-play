@@ -26,13 +26,26 @@ An indie video game explorer app.
 
 ## Development
 
-For detailed instructions about setting up the development environment, see [DEVELOPMENT.md](DEVELOPMENT.md)
+Quick start with mise:
+```bash
+# Install mise
+curl https://mise.jdx.dev/install.sh | sh
+
+# Setup project
+mise install
+mise run install
+
+# Start all services
+mise run start
+```
+
+For detailed instructions, see [DEVELOPMENT.md](DEVELOPMENT.md)
 
 ## Target Roadmap:
 
 ### Iteration 1 - Setup & Data (1-2 evenings)
 
-- [ ] Project setup (front/back)
+- [x] Project setup (front/back)
 - [ ] Simple Steam API collection script
 - [ ] Basic MongoDB storage
 - [ ] Stack testing

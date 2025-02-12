@@ -12,12 +12,6 @@ dist/
 build/
 *.egg-info/
 
-# Environment variables
-.env
-.env.*
-.envrc
-!.env.example
-
 # IDE specific files
 .idea/
 .vscode/
