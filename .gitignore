@@ -16,3 +16,6 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Generated data files
+backend/data/indie_games.json

@@ -25,6 +25,9 @@ run = "cd backend && uvicorn main:app --reload --port ${API_URL##*:}"
 [tasks.start-front]
 run = "cd frontend && npm run dev"
 
+[tasks.collect-games]
+run = "source .venv/bin/activate && cd backend && python scripts/collect_games.py"
+
 [tasks.install]
 run = [
     "pip install -r backend/requirements.txt",
