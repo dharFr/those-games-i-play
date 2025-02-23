@@ -30,7 +30,9 @@ run = "source .venv/bin/activate && cd backend && python scripts/collect_games.p
 
 [tasks.install]
 run = [
-    "pip install -r backend/requirements.txt",
+    "python -m venv .venv",
+    "source .venv/bin/activate && pip install --upgrade pip",
+    "source .venv/bin/activate && pip install -r backend/requirements.txt",
     "cd frontend && npm install",
     "mkdir -p backend/scripts/data"  # Ensure data directory exists
 ]

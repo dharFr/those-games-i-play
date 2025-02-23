@@ -17,5 +17,8 @@ Thumbs.db
 # Logs
 *.log
 
+# Ignore Python virtual environment
+.venv/
+
 # Generated data files
 backend/data/indie_games.json
