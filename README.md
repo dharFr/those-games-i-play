@@ -48,7 +48,7 @@ For detailed instructions, see [DEVELOPMENT.md](DEVELOPMENT.md)
 - [x] Project setup (front/back)
 - [X] Simple Steam API collection script
 - ~~[ ] Basic MongoDB storage~~
-- [ ] Stack testing
+- ~~[ ] Stack testing~~
 
 ### Iteration 2 - Basic Frontend (2-3 evenings)
 
