@@ -28,6 +28,9 @@ run = "cd frontend && npm run dev"
 [tasks.collect-games]
 run = "source .venv/bin/activate && cd backend && python scripts/collect_games.py"
 
+[tasks.import-games]
+run = "source .venv/bin/activate && cd backend && python scripts/import_games.py"
+
 [tasks.install]
 run = [
     "python -m venv .venv",

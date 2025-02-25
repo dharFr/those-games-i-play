@@ -36,6 +36,20 @@
 - Backend API: http://localhost:8000
 - API Docs: http://localhost:8000/docs
 
+## Data Import Workflow
+
+1. Collect game data from Steam:
+   ```bash
+   mise run collect-games
+   ```
+   This will fetch indie games from Steam API and save them to `backend/data/indie_games.json`
+
+2. Import games into MongoDB:
+   ```bash
+   mise run import-games
+   ```
+   This will process the JSON file and import games into the MongoDB database.
+
 ## Development Tools
 
 ### Recommended VSCode Extensions
