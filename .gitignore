@@ -22,3 +22,9 @@ Thumbs.db
 
 # Generated data files
 backend/data/indie_games.json
+
+# MongoDB
+data/mongodb/
+
+# Redis
+dump.rdb

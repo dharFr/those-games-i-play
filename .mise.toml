@@ -17,10 +17,10 @@ FRONTEND_URL = "http://localhost:5173"
 depends = ["start-db", "start-api", "start-front"]
 
 [tasks.start-db]
-run = "mongod --quiet & redis-server --daemonize yes"
+run = "mongod --dbpath data/mongodb --quiet & redis-server --daemonize yes"
 
 [tasks.start-api]
-run = "cd backend && uvicorn main:app --reload --port ${API_URL##*:}"
+run = "source .venv/bin/activate && cd backend && uvicorn app.main:app --reload --port ${API_URL##*:}"
 
 [tasks.start-front]
 run = "cd frontend && npm run dev"
@@ -34,7 +34,7 @@ run = [
     "source .venv/bin/activate && pip install --upgrade pip",
     "source .venv/bin/activate && pip install -r backend/requirements.txt",
     "cd frontend && npm install",
-    "mkdir -p backend/scripts/data"  # Ensure data directory exists
+    "mkdir -p data/mongodb"  # Create MongoDB data directory
 ]
 
 [tasks.stop]

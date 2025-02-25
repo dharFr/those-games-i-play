@@ -4,6 +4,8 @@ from fastapi.responses import JSONResponse
 
 from app.core.config import settings
 from app.core.errors import AppException
+from app.core.db import db
+from app.api.v1 import router as api_v1_router
 
 def create_app() -> FastAPI:
     app = FastAPI(
@@ -33,9 +35,16 @@ def create_app() -> FastAPI:
             }
         )
 
-    # Include API routers here
-    # from app.api.v1 import api_router
-    # app.include_router(api_router, prefix=settings.api_v1_prefix)
+    @app.on_event("startup")
+    async def startup():
+        await db.connect_db()
+
+    @app.on_event("shutdown")
+    async def shutdown():
+        await db.close_db()
+
+    # Include API routers
+    app.include_router(api_v1_router, prefix=settings.api_v1_prefix)
 
     return app
 
